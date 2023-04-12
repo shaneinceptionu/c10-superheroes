@@ -1,11 +1,11 @@
 import express from "express";
 import superheroRouter from "./routes/superhero.js";
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
-app.use("/superhero", superheroRouter);
+app.use("/api/superhero", superheroRouter);
 
 app.get("/test", (req, res) => {
   res.send("test endpoint working");
