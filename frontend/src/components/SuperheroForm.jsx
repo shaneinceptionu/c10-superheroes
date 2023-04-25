@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { TextField } from '@mui/material';
 export function SuperheroForm() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
@@ -42,18 +42,12 @@ export function SuperheroForm() {
   return (
     <div>
       <form onSubmit={submitSuperhero}>
-        <label>Superhero Name:</label>
-        <input onChange={(event) => setName(event.target.value)} />
-        <label>Alter Ego:</label>
-        <input onChange={(event) => setAlterEgo(event.target.value)} />
-        <label>Superpower:</label>
-        <input onChange={(event) => setSuperpower(event.target.value)} />
-        <label>Weakness:</label>
-        <input onChange={(event) => setWeakness(event.target.value)} />
-        <label>Place of Birth:</label>
-        <input onChange={(event) => setPlaceOfBirth(event.target.value)} />
-        <label>Age:</label>
-
+        <TextField required id="outlined-basic" label="Superhero Name:" variant="outlined" input onChange={(event) => setName(event.target.value)} />
+        <TextField id="outlined-basic" label="Alter Ego:" variant="outlined" input onChange={(event) => setAlterEgo(event.target.value)} />
+        <TextField id="outlined-basic" label="Superpower:" variant="outlined" input onChange={(event) => setSuperpower(event.target.value)} />
+        <TextField id="outlined-password-input" type="password" label="Weakness:" variant="outlined" input onChange={(event) => setWeakness(event.target.value)} />
+        <TextField id="outlined-basic" label="Place of Birth:" variant="outlined" input onChange={(event) => setPlaceOfBirth(event.target.value)} />
+        <TextField id="outlined-number" type="number"label="Age:" variant="outlined" />
         <input type="submit" title="submit" />
         <p style={{ color: "red" }}>{errorMessage}</p>
       </form>
