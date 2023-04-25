@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function SuperheroForm() {
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const [name, setName] = useState("");
   const [alterEgo, setAlterEgo] = useState("");
@@ -31,6 +33,7 @@ export function SuperheroForm() {
       } else {
         const superheroData = await response.json();
         console.log("response data is", superheroData);
+        navigate("/");
       }
     } catch (error) {
       console.log(error.message);
