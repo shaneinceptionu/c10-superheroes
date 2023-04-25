@@ -1,4 +1,5 @@
 import express from "express";
+import { mustBeAgent } from "../auth.js";
 import {
   createSuperhero,
   deleteSuperhero,
@@ -11,7 +12,7 @@ import {
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", mustBeAgent, async (req, res) => {
   const newSuperhero = req.body;
   try {
     const createdSuperhero = await createSuperhero(newSuperhero);
