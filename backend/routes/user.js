@@ -49,7 +49,9 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 });
 
 router.post("/logout", async (req, res) => {
-  req.logOut();
+  req.logOut(() => {
+    res.sendStatus(200);
+  });
 });
 
 export default router;

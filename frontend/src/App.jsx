@@ -24,14 +24,19 @@ function App() {
           {user && (
             <>
               <Link to="/add-superhero">
-                <Button>Add Superhero</Button>
+                <Button variant="contained">Add Superhero</Button>
               </Link>
-              <Button onClick={logout}>Logout</Button>
+              <Button variant="contained" onClick={logout}>
+                Logout
+              </Button>
             </>
           )}
-          {!user && <Link to="/login">Login</Link>}
+          {!user && (
+            <Link to="/login">
+              <Button variant="contained">Login</Button>
+            </Link>
+          )}
         </ButtonGroup>
-        <Link to="/">Home</Link>
       </nav>
       <Routes>
         <Route path="/" element={<SuperheroList />} />
