@@ -8,6 +8,7 @@ import { Button, ButtonGroup } from "@mui/material";
 import WrapperComponent from "./WrapperComponent";
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
+import Authenticated from "./components/Authenticated";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<SuperheroList />} />
         <Route path="/detail/:id" element={<SuperheroDetail />} />
-        <Route path="/add-superhero" element={<SuperheroForm />} />
+        <Route
+          path="/add-superhero"
+          element={
+            <Authenticated>
+              <SuperheroForm />
+            </Authenticated>
+          }
+        />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>

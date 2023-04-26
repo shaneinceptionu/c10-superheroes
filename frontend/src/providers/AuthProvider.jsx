@@ -8,21 +8,37 @@ const AuthProvider = (props) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  const login = (username, password) => {
-    if (username && password === "password") {
-      setUser({ username });
+  const login = async (username, password) => {
+    const userResponse = await fetch("/api/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+    if (userResponse.ok) {
+      const userData = await userResponse.json();
+      setUser(userData);
       return true;
     } else {
+      setUser(null);
       return false;
     }
   };
-  const logout = () => {
-    setUser(null);
+  const logout = async () => {
+    const logoutResponse = await fetch("/api/user/logout", { method: "POST" });
+    if (logoutResponse.ok) setUser(null);
   };
 
   useEffect(() => {
     const getUser = async () => {
-      setUser({ username: "useEffectTester" });
+      const userResponse = await fetch("/api/user");
+      if (userResponse.ok) {
+        const userData = await userResponse.json();
+        setUser(userData);
+      } else {
+        setUser(null);
+      }
       setLoading(false);
     };
     getUser();
