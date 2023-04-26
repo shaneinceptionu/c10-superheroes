@@ -38,8 +38,11 @@ router.post("/logout", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  if (req.user) return res.send(req.user);
-  return res.send(null);
+  //artificially slowing down this request to see loading screen
+  setTimeout(() => {
+    if (req.user) res.send(req.user);
+    else res.sendStatus(401);
+  }, 2000);
 });
 
 export default router;
