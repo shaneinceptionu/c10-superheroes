@@ -32,7 +32,9 @@ export const createUser = async (newUser) => {
 export const verifyPassword = async (username, password) => {
   const user = await User.findOne({ username });
   if (user && bcrypt.compareSync(password, user.password)) {
-    return user;
+    const userData = user.toObject();
+    delete userData.password;
+    return userData;
   } else {
     return null;
   }
