@@ -17,6 +17,8 @@ export const createSuperhero = async (newSuperhero) => {
   } catch (error) {
     if (error.code === 11000) {
       throw new Error("Duplicate Error");
+    } else {
+      throw error;
     }
   }
 };

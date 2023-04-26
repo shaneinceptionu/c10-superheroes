@@ -31,7 +31,7 @@ export const createUser = async (newUser) => {
 
 export const verifyPassword = async (username, password) => {
   const user = await User.findOne({ username });
-  if (bcrypt.compareSync(password, user.password)) {
+  if (user && bcrypt.compareSync(password, user.password)) {
     return user;
   } else {
     return null;

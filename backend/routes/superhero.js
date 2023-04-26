@@ -1,4 +1,5 @@
 import express from "express";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 import {
   createSuperhero,
   deleteSuperhero,
@@ -11,7 +12,8 @@ import {
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", isAuthenticated, async (req, res) => {
+  console.log("in post superhero route");
   const newSuperhero = req.body;
   try {
     const createdSuperhero = await createSuperhero(newSuperhero);
