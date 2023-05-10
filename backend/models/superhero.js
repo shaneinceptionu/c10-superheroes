@@ -1,6 +1,6 @@
-import mongoose from "../mongoose.js";
+import db from "../mongoose.js";
 
-const superheroSchema = mongoose.Schema({
+const superheroSchema = db.Schema({
   alterEgo: String,
   superpower: String,
   name: { type: String, required: true, unique: true },
@@ -8,7 +8,7 @@ const superheroSchema = mongoose.Schema({
   placeOfBirth: String,
 });
 
-const Superhero = mongoose.model("superhero", superheroSchema, "superheroes");
+export const Superhero = db.model("superhero", superheroSchema, "superheroes");
 
 export const createSuperhero = async (newSuperhero) => {
   try {
