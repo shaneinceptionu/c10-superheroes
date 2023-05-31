@@ -33,6 +33,11 @@ app.use("/api/user", userRouter);
 app.get("/test", (req, res) => {
   res.send("test endpoint working");
 });
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(pathToBuild, "index.html"));
+});
+
 app.listen(PORT, () => {
   console.log("listening on port", PORT);
 });
