@@ -3,8 +3,17 @@ import session from "express-session";
 import passport from "passport";
 import superheroRouter from "./routes/superhero.js";
 import userRouter from "./routes/auth.js";
+import path from "path";
 const app = express();
+
+const __dirname = path.resolve();
+
+const pathToBuild = path.join(__dirname, "../frontend/dist");
+console.log("dirname is ", pathToBuild);
+
 const PORT = process.env.PORT;
+
+app.use(express.static(pathToBuild));
 app.use(
   session({
     secret: "keyboard cat",
