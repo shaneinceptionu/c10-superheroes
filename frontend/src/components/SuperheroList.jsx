@@ -18,7 +18,17 @@ export function SuperheroList() {
         {superheroList.map((superhero) => {
           return (
             <li key={superhero.name}>
-              <Link to={`/detail/${superhero._id}`}>{superhero.name}</Link>
+              <Link
+                style={{
+                  color: "darkred",
+                  fontWeight: "900",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+                to={`/detail/${superhero._id}`}
+              >
+                {superhero.name}
+              </Link>
             </li>
           );
         })}
