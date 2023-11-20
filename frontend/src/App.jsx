@@ -13,6 +13,7 @@ import Authenticated from "./components/Authenticated";
 function App() {
   return (
     <div>
+      This is a cool change
       <NavBar />
       <Routes>
         <Route path="/" element={<SuperheroList />} />
