@@ -15,6 +15,7 @@ function App() {
     <div>
       This is a cool change
       <NavBar />
+      Hello
       <Routes>
         <Route path="/" element={<SuperheroList />} />
         <Route path="/detail/:id" element={<SuperheroDetail />} />
