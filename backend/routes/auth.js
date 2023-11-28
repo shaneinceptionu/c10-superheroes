@@ -28,6 +28,7 @@ passport.deserializeUser(function (user, cb) {
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("authenticated", req.user);
+  res.cookie("access-token", "valid");
   res.send(req.user);
 });
 

@@ -15,7 +15,6 @@ const NavBar = () => {
         <Link to="/">
           <Button>Home</Button>
         </Link>
-
         {user && (
           <>
             <Link to="/add-superhero">

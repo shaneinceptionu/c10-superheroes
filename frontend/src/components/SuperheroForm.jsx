@@ -21,6 +21,7 @@ export function SuperheroForm() {
     try {
       const response = await fetch("/api/superhero", {
         method: "POST",
+        credentials: 'same-origin',
         headers: {
           "Content-Type": "application/json",
         },

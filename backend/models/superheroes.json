@@ -12,5 +12,12 @@
     "weakness": "chimichangas",
     "placeOfBirth": "Regina, Saskatchewan",
     "alterEgo": "Wade Wilson"
+  },
+  {
+    "name": "Wolverine",
+    "superpower": "Can't be killed",
+    "weakness": "magnets",
+    "placeOfBirth": "North West Territories",
+    "alterEgo": "Logan"
   }
 ]

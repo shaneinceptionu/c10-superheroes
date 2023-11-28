@@ -13,12 +13,15 @@ import Authenticated from "./components/Authenticated";
 function App() {
   return (
     <div>
-      Testing conflict
       <NavBar />
-      Another conflict
       <Routes>
         <Route path="/" element={<SuperheroList />} />
-        <Route path="/detail/:id" element={<SuperheroDetail />} />
+        <Route path="/detail/:id" 
+          element={
+            <Authenticated>
+              <SuperheroDetail />
+            </Authenticated>
+          } />
         <Route
           path="/add-superhero"
           element={
